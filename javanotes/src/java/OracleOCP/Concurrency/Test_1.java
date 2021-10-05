@@ -1,12 +1,14 @@
 package java.OracleOCP.Concurrency;
 
+import javaocp.OracleOCP.Concurrency.SingletonExmple;
+
 public class Test_1 {
     public static void main(String[] args) {
         Runnable r1=new Runnable() {
             @Override
             public void run() {
                 try {
-                    String name=SingletonExmple.getName("hatice");
+                    String name= SingletonExmple.getName("hatice");
                     System.out.println(name);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
