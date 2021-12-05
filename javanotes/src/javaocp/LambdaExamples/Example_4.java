@@ -2,9 +2,13 @@ package javaocp.LambdaExamples;
 
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Example_4 {
+    static boolean p1(Personel p){
+        return p.getAge()>33;
+    }
     public static void main(String[] args) {
         Personel ali=new Personel("ali",23);
         Personel mehmet=new Personel("mehmet",54);
@@ -18,8 +22,10 @@ public class Example_4 {
         list.add(yasin);
         list.add(mehmet);
 
+
+
         list.stream()
-                .filter(e -> e.getAge()>33)
+                .filter(Example_4::p1)
                 .forEach(e -> System.out.println(e.getName()));
         //you could easily request a parallel stream, which might make sense if the collection is large enough and your computer has enough cores
         list.parallelStream()
